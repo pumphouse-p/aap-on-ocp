@@ -1,0 +1,20 @@
+---
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: example
+  namespace: ansible-automation-platform
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  image_pull_policy: IfNotPresent
+  controller:
+    disabled: false
+  eda:
+    disabled: false
+  hub:
+    disabled: false
+    storage_type: s3
+    object_storage_s3_secret: hub-s3-credentials
+  lightspeed:
+    disabled: true
