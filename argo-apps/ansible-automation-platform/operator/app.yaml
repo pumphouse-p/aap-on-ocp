@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     path: manifests/ansible-automation-platform/operator
-    repoURL: git@github.com/pumphouse-p/aap-on-ocp
+    repoURL: https://github.com/pumphouse-p/aap-on-ocp.git
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc

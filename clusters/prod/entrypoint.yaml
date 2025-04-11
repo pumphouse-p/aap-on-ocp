@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     path: clusters/prod/apps
-    repoURL: git@github.com/pumphouse-p/aap-on-ocp
+    repoURL: https://github.com/pumphouse-p/aap-on-ocp.git
     targetRevision: main
   syncPolicy:
     automated: {}
