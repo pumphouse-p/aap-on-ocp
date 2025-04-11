@@ -14,6 +14,13 @@ spec:
       namespace: aap-latest
       patches:
         - target:
+            kind: Namespace
+            name: ansible-automation-platform
+          patch: |-
+            - op: replace
+              path: /metadata/name
+              value: aap-latest
+        - target:
             kind: OperatorGroup
             name: ansible-automation-platform-operator
           patch: |-
