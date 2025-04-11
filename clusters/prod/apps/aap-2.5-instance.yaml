@@ -10,6 +10,22 @@ spec:
     path: manifests/ansible-automation-platform/instance/stable-2.5
     repoURL: https://github.com/pumphouse-p/aap-on-ocp.git
     targetRevision: main
+    kustomize:
+      namespace: aap-latest
+      patches:
+        - target:
+            kind: AnsibleAutomationPlatform
+            name: example
+          patch: |-
+            - op: replace
+              path: /metadata/name
+              value: aap-latest
+            - op: replace
+              path: /metadata/namespace:
+              value: aap-latest
+            - op: replace
+              path: /spec/hub/disabled
+              value: true
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
