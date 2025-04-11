@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aap-latest
+  name: aap-latest-operator
   namespace: openshift-gitops
 spec:
   project: default
