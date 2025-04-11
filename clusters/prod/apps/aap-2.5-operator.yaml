@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aap-2.5
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    path: manifests/ansible-automation-platform/operator/overlays/stable-2.5
+    repoURL: https://github.com/pumphouse-p/aap-on-ocp.git
+    targetRevision: main
+    kustomize:
+      namespace: aap-2.5
+      patches:
+        - target:
+            kind: OperatorGroup
+            name: ansible-automation-platform-operator
+          patch: |-
+            - op: replace
+              path: /spec/targetNamespaces
+              value: aap-2.5
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-gitops
+  syncPolicy:
+    automated: {}

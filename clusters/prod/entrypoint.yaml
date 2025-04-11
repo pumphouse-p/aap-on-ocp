@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: entrypoint
   namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: openshift-gitops
