@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aap-2.5
+  name: aap-latest
   namespace: openshift-gitops
 spec:
   project: default
@@ -11,7 +11,7 @@ spec:
     repoURL: https://github.com/pumphouse-p/aap-on-ocp.git
     targetRevision: main
     kustomize:
-      namespace: aap-2.5
+      namespace: aap-latest
       patches:
         - target:
             kind: OperatorGroup
@@ -19,7 +19,7 @@ spec:
           patch: |-
             - op: replace
               path: /spec/targetNamespaces
-              value: aap-2.5
+              value: aap-latest
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
