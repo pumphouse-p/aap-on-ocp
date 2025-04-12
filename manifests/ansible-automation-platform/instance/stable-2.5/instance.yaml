@@ -10,11 +10,14 @@ spec:
   image_pull_policy: IfNotPresent
   controller:
     disabled: false
+    replicas: 1
   eda:
     disabled: false
+    replicas: 1
   hub:
     disabled: false
-    storage_type: s3
-    object_storage_s3_secret: hub-s3-credentials
+    storage_type: file
+    file_storage_storage_class: gp3-csi
+    replicas: 1
   lightspeed:
     disabled: true
