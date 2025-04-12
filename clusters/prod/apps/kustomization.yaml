@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - aap-2.5-operator.yaml
   - aap-2.5-instance.yaml
+  - aap-2.4-operator.yaml

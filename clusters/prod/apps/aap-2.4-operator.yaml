@@ -1,0 +1,34 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aap-legacy-operator
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    path: manifests/ansible-automation-platform/operator/overlays/stable-2.4
+    repoURL: https://github.com/pumphouse-p/aap-on-ocp.git
+    targetRevision: main
+    kustomize:
+      namespace: aap-legacy
+      patches:
+        - target:
+            kind: Namespace
+            name: ansible-automation-platform
+          patch: |-
+            - op: replace
+              path: /metadata/name
+              value: aap-legacy
+        - target:
+            kind: OperatorGroup
+            name: ansible-automation-platform-operator
+          patch: |-
+            - op: replace
+              path: /spec/targetNamespaces/0
+              value: aap-legacy
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-gitops
+  syncPolicy:
+    automated: {}
