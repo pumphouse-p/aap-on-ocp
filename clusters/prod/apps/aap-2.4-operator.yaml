@@ -27,13 +27,6 @@ spec:
             - op: replace
               path: /spec/targetNamespaces/0
               value: aap-legacy
-        - target:
-            kind: Subscription
-            name: ansible-automation-platform
-          patch: |-
-            - op: replace
-              path: /metadata/name
-              value: ansible-automation-platform-24
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
