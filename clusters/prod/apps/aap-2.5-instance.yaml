@@ -25,7 +25,7 @@ spec:
               value: aap-latest
             - op: replace
               path: /spec/hub/disabled
-              value: true
+              value: false
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
