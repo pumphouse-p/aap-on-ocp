@@ -24,8 +24,8 @@ spec:
               path: /metadata/namespace
               value: aap-latest
             - op: replace
-              path: /spec/hub/disabled
-              value: true
+              path: /spec/hub/object_storage_s3_secret
+              value: hub-s3
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
