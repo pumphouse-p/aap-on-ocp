@@ -26,6 +26,12 @@ spec:
             - op: replace
               path: /spec/hub/object_storage_s3_secret
               value: hub-s3
+            - op: replace
+              path: /spec/controller/replicas
+              value: 3
+            - op: replace
+              path: /spec/eda/replicas
+              value: 3
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
